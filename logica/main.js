@@ -16,11 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 function cargarCartas() {
-    const contenedor = document.getElementById("cartas");
-    contenedor.innerHTML = ""; // para refrescar
-
-    const meterCarta = (carta) => contenedor.appendChild(carta.createHtmlElement());
-
     if (cartas.length === 0) {
         fetch(URL)
             .then(conseguirData)
