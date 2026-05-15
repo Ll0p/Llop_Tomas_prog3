@@ -29,7 +29,7 @@ export class Carta {
         const div = document.createElement("div");
         const code = document.createElement("h3");
         const value = document.createElement("p");
-        const suit = document.createAttribute("p");
+        const suit = document.createElement("p");
         const imagen = document.createElement("img");
         const botonGuardado = document.createElement("button");
 
@@ -48,7 +48,7 @@ export class Carta {
         imagen.src = this.imagen;
         botonGuardado.textContent = "Guardar";
 
-        div.appendChild(code, imagen, value, suit, botonGuardado);
+        div.append(code, imagen, value, suit, botonGuardado);
         
         return div;
     }
@@ -57,7 +57,7 @@ export class Carta {
         let cartas = JSON.parse(localStorage.getItem("cartas"));
         if (cartas === null) cartas = [];
 
-        const existe = cartas.some(c => c.id === carta.id);
+        const existe = cartas.some(c => c.code === carta.code);
 
         if (!existe) {
             cartas.push(carta);
