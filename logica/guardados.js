@@ -9,9 +9,10 @@ function cargarGuardados() {
 
     let datos = JSON.parse(localStorage.getItem("cartas"));
     if (datos === null) datos = [];
+    const mostrarBoton = false;
 
     datos.forEach(datoCarta => {
-        meterCarta(contenedor, crearCarta(datoCarta))
+        meterCarta(contenedor, crearCarta(datoCarta), mostrarBoton)
     });
 }
 

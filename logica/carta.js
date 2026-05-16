@@ -25,31 +25,43 @@ export class Carta {
         );
     }
 
-    createHtmlElement(){
+    createHtmlElement(mostrarBoton = true){
         const div = document.createElement("div");
         const code = document.createElement("h3");
         const value = document.createElement("p");
         const suit = document.createElement("p");
         const imagen = document.createElement("img");
-        const botonGuardado = document.createElement("button");
 
         imagen.addEventListener("click", () => {
             window.open(this.imagen, "_blank");
         });
 
-        botonGuardado.addEventListener("click", () => {
-            Carta.guardarCarta(this);
-        });
-
         div.className = "carta";
+
+        const claseTexto = "texto";
+        code.className = claseTexto;
+        value.className = claseTexto;
+        suit.className = claseTexto;
+
         code.textContent = this.code;
         value.textContent = this.value;
         suit.textContent = this.suit;
         imagen.src = this.imagen;
-        botonGuardado.textContent = "Guardar";
 
-        div.append(code, imagen, value, suit, botonGuardado);
+        div.append(code, imagen, value, suit);
         
+        if (mostrarBoton) {
+            const botonGuardado = document.createElement("button");
+            botonGuardado.textContent = "Guardar";
+
+
+            botonGuardado.addEventListener("click", () => {
+                Carta.guardarCarta(this);
+            });
+
+            div.append(botonGuardado)
+        }
+
         return div;
     }
 
