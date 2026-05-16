@@ -1,5 +1,5 @@
 import { Carta } from "./carta.js";
-import { crearCarta, meterCarta } from "./util_cartas.js"
+import { crearCarta, meterCarta, conseguirCartasStorage } from "./util_cartas.js"
 
 const ordenValores = {
     "ACE": 14,
@@ -23,18 +23,16 @@ function cargarGuardados() {
     const contenedor = document.getElementById("cartas");
     contenedor.innerHTML = "";
 
-    let datos = JSON.parse(localStorage.getItem("cartas"));
-    if (datos === null) datos = [];
-    const mostrarBoton = false;
+    let cartas = conseguirCartasStorage();
+    const MOSTRAR_BOTON = false;
 
-    datos.forEach(datoCarta => {
-        meterCarta(contenedor, crearCarta(datoCarta), mostrarBoton)
+    cartas.forEach(datoCarta => {
+        meterCarta(contenedor, crearCarta(datoCarta), MOSTRAR_BOTON);
     });
 }
 
 window.ordenarPorValor = () => {
-    let cartas = JSON.parse(localStorage.getItem("cartas"));
-    if (cartas === null) cartas = [];
+    let cartas = conseguirCartasStorage();
 
     cartas.sort((a, b) => ordenValores[a.value] - ordenValores[b.value]);
 

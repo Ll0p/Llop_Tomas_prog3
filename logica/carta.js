@@ -1,3 +1,5 @@
+import { conseguirCartasStorage } from "./util_cartas.js"
+
 export class Carta {
     code // string
     value // string
@@ -66,8 +68,7 @@ export class Carta {
     }
 
     static guardarCarta(carta) {
-        let cartas = JSON.parse(localStorage.getItem("cartas"));
-        if (cartas === null) cartas = [];
+        let cartas = conseguirCartasStorage();
 
         const existe = cartas.some(c => c.code === carta.code);
 

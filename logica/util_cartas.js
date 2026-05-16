@@ -7,3 +7,9 @@ export function crearCarta(datos) {
 export function meterCarta(contenedor, carta, mostrarGuardado) {
     contenedor.appendChild(carta.createHtmlElement(mostrarGuardado));
 }
+
+export function conseguirCartasStorage() {
+    let cartas = JSON.parse(localStorage.getItem("cartas"));
+    if (cartas === null) cartas = [];
+    return cartas;
+}
