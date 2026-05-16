@@ -1,7 +1,3 @@
-body {
-    background-image: "https://imgs.search.brave.com/-g_30NqM8duoao53qmYIttsFWuwlM3RVRPmmxe-yH9Y/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMDUv/MTUzLzcxNi9zbWFs/bC8zZC1jYXNpbm8t/YmFja2dyb3VuZC1w/b2tlci1jYXJkcy1h/bmQtcGxheWluZy1j/aGlwcy1pbGx1c3Ry/YXRpb24tZnJlZS12/ZWN0b3IuanBn";
-}
-
 main {
     display: grid;
     grid-template-rows: auto 1fr; /*ajusto el tamaño al contenido automaticamente*/ 
